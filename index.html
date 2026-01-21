@@ -32,6 +32,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
   <style>
     html { scroll-behavior: smooth; }
     body { font-family: 'Zen Kaku Gothic New', sans-serif; }
@@ -44,18 +47,7 @@
       background-clip: text;
     }
 
-    /* Big Number */
-    .big-number {
-      font-size: clamp(4rem, 15vw, 10rem);
-      font-weight: 900;
-      line-height: 1;
-      background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    /* Vivid Button */
+    /* Vivid Button (Primary) */
     .btn-vivid {
       background: linear-gradient(135deg, #ec4899 0%, #a855f7 100%);
       transition: all 0.3s ease;
@@ -66,13 +58,30 @@
       box-shadow: 0 15px 40px rgba(236, 72, 153, 0.5);
     }
 
+    /* Secondary Button (Outline) */
+    .btn-secondary {
+      background: transparent;
+      border: 2px solid #ec4899;
+      color: #ec4899;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      background: #ec4899;
+      color: white;
+      transform: translateY(-3px);
+    }
+
     /* Section Title */
     .section-title-en {
-      font-size: 0.75rem;
+      font-size: 0.875rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #ec4899;
       font-weight: 700;
+      display: inline-block;
+      border-bottom: 2px solid #ec4899;
+      padding-bottom: 4px;
     }
 
     /* Card */
@@ -112,67 +121,102 @@
       animation: marquee 20s linear infinite;
     }
 
-    /* Hero Background Scroll */
-    @keyframes heroScroll {
+    /* Hero Scroll - Row 1 (Left to Right) */
+    @keyframes heroScrollLeft {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    .hero-scroll-left {
+      animation: heroScrollLeft 35s linear infinite;
+    }
+
+    /* Hero Scroll - Row 2 (Right to Left) */
+    @keyframes heroScrollRight {
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    .hero-scroll {
-      animation: heroScroll 30s linear infinite;
+    .hero-scroll-right {
+      animation: heroScrollRight 30s linear infinite;
     }
 
-    /* Floating Badge */
-    .floating {
-      animation: float 3s ease-in-out infinite;
+    /* Section Divider */
+    .section-divider {
+      height: 80px;
+      margin-top: -40px;
+      margin-bottom: -40px;
+      position: relative;
+      z-index: 10;
     }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+    .section-divider svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Icon styling */
+    .lucide-icon {
+      width: 24px;
+      height: 24px;
+      stroke-width: 2;
+    }
+    .lucide-icon-lg {
+      width: 32px;
+      height: 32px;
+      stroke-width: 1.5;
     }
   </style>
 </head>
 <body class="bg-white text-gray-800 overflow-x-hidden">
 
   <!-- ========================================
-       HERO / First View (SP Optimized - Split Layout)
+       HERO / First View - 2 Row Carousel
        ======================================== -->
-  <section class="min-h-screen flex flex-col bg-white">
-    <!-- Image Carousel Section (上半分: 画像をしっかり見せる) -->
-    <div class="relative h-[45vh] md:h-[50vh] overflow-hidden bg-gray-900">
-      <div class="hero-scroll flex whitespace-nowrap h-full items-center">
-        <!-- First set -->
-        <div class="flex-shrink-0 flex items-center gap-3 px-2">
-          <img src="assets/images/KS001-thumbnail.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS005-サムネイル3.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS008-サムネイル.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS009_サムネイル.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS010-サムネイル002.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS018main.jpeg" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/thumbnail.jpg" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/01.サムネイル_修正.jpg" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-        </div>
-        <!-- Duplicate set for seamless loop -->
-        <div class="flex-shrink-0 flex items-center gap-3 px-2">
-          <img src="assets/images/KS001-thumbnail.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS005-サムネイル3.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS008-サムネイル.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS009_サムネイル.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS010-サムネイル002.png" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/KS018main.jpeg" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/thumbnail.jpg" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
-          <img src="assets/images/01.サムネイル_修正.jpg" alt="制作作品" class="h-[40vh] md:h-[45vh] w-auto object-cover rounded-2xl shadow-2xl">
+  <section class="min-h-screen flex flex-col bg-gray-900">
+    <!-- 2-Row Image Carousel -->
+    <div class="relative flex-1 flex flex-col justify-center gap-3 py-6 overflow-hidden">
+      <!-- Row 1: Left to Right -->
+      <div class="overflow-hidden">
+        <div class="hero-scroll-left flex whitespace-nowrap items-center">
+          <div class="flex-shrink-0 flex items-center gap-3 px-1.5">
+            <img src="assets/images/KS001-thumbnail.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS005-サムネイル3.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS008-サムネイル.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS009_サムネイル.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-3 px-1.5">
+            <img src="assets/images/KS001-thumbnail.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS005-サムネイル3.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS008-サムネイル.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS009_サムネイル.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+          </div>
         </div>
       </div>
-      <!-- 軽いグラデーション（下部のみ、上はクリアに） -->
-      <div class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none"></div>
-      <!-- 作品数バッジ -->
+
+      <!-- Row 2: Right to Left -->
+      <div class="overflow-hidden">
+        <div class="hero-scroll-right flex whitespace-nowrap items-center">
+          <div class="flex-shrink-0 flex items-center gap-3 px-1.5">
+            <img src="assets/images/KS010-サムネイル002.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS018main.jpeg" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/thumbnail.jpg" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/01.サムネイル_修正.jpg" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+          </div>
+          <div class="flex-shrink-0 flex items-center gap-3 px-1.5">
+            <img src="assets/images/KS010-サムネイル002.png" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/KS018main.jpeg" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/thumbnail.jpg" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+            <img src="assets/images/01.サムネイル_修正.jpg" alt="制作作品" class="h-[22vh] md:h-[28vh] w-auto object-cover rounded-xl shadow-2xl">
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge -->
       <div class="absolute bottom-4 left-4 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-bold">
         累計<span class="text-vivid-pink text-lg ml-1">77</span>作品
       </div>
     </div>
 
-    <!-- Content Section (下半分: テキストとCTA) -->
-    <div class="flex-1 flex flex-col justify-center px-5 py-8 bg-gradient-to-b from-white to-pink-50">
+    <!-- Content Section -->
+    <div class="px-5 py-8 bg-gradient-to-t from-gray-900 via-gray-900 to-transparent">
       <!-- Tags -->
       <div class="flex flex-wrap justify-center gap-2 mb-5">
         <span class="bg-vivid-pink text-white text-xs font-bold px-4 py-1.5 rounded-full">#ASMR制作</span>
@@ -181,47 +225,36 @@
       </div>
 
       <!-- Main Copy -->
-      <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 text-center">
-        <span class="gradient-text">エロで、</span><br>
-        <span class="gradient-text">日常を変える。</span>
+      <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 text-center text-white">
+        エロで、<br>日常を変える。
       </h1>
 
-      <p class="text-base md:text-xl text-gray-600 mb-6 leading-relaxed text-center">
+      <p class="text-base md:text-xl text-gray-300 mb-6 leading-relaxed text-center font-medium">
         累計<strong class="text-vivid-pink">6,000万円</strong>売り上げた<br>
         ASMR音声制作チームで働きませんか？
       </p>
 
       <!-- Stats Row -->
-      <div class="flex justify-center gap-6 mb-6">
+      <div class="flex justify-center gap-8 mb-6">
         <div class="text-center">
-          <p class="text-3xl font-black gradient-text">728<span class="text-lg">万</span></p>
-          <p class="text-xs text-gray-500 font-bold">最高月商</p>
+          <p class="text-3xl font-black text-white">728<span class="text-lg text-vivid-pink">万</span></p>
+          <p class="text-xs text-gray-400 font-medium">最高月商</p>
         </div>
-        <div class="w-px bg-gray-200"></div>
+        <div class="w-px bg-gray-700"></div>
         <div class="text-center">
-          <p class="text-3xl font-black gradient-text">3<span class="text-lg">名</span></p>
-          <p class="text-xs text-gray-500 font-bold">募集中</p>
+          <p class="text-3xl font-black text-vivid-pink">3<span class="text-lg text-white">名</span></p>
+          <p class="text-xs text-gray-400 font-medium">募集中</p>
         </div>
       </div>
 
       <!-- CTA Buttons -->
       <div class="flex flex-col gap-3 max-w-sm mx-auto w-full">
-        <a href="#positions" class="btn-vivid text-white font-black text-base px-8 py-4 rounded-full w-full text-center">
-          募集職種を見る
-        </a>
-        <a href="#apply" class="bg-gray-900 text-white font-black text-base px-8 py-4 rounded-full w-full text-center hover:bg-gray-800 transition-colors">
+        <a href="#apply" class="btn-vivid text-white font-black text-base px-8 py-4 rounded-full w-full text-center">
           今すぐ応募する
         </a>
-      </div>
-    </div>
-
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 hidden md:flex">
-      <div class="flex flex-col items-center gap-2">
-        <span class="text-xs text-gray-400">SCROLL</span>
-        <div class="w-6 h-10 border-2 border-gray-300 rounded-full flex justify-center pt-1.5">
-          <div class="w-1 h-2 bg-vivid-pink rounded-full animate-bounce"></div>
-        </div>
+        <a href="#positions" class="btn-secondary font-bold text-base px-8 py-4 rounded-full w-full text-center">
+          募集職種を見る
+        </a>
       </div>
     </div>
   </section>
@@ -229,63 +262,64 @@
   <!-- ========================================
        Marquee Banner
        ======================================== -->
-  <div class="bg-gradient-to-r from-vivid-pink via-vivid-magenta to-vivid-purple py-4 overflow-hidden">
+  <div class="bg-gradient-to-r from-vivid-pink via-vivid-magenta to-vivid-purple py-3 overflow-hidden">
     <div class="marquee whitespace-nowrap">
-      <span class="inline-block text-white font-black text-lg mx-8">未経験OK</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
-      <span class="inline-block text-white font-black text-lg mx-8">月給25万円〜</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
-      <span class="inline-block text-white font-black text-lg mx-8">秋葉原駅徒歩5分</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
-      <span class="inline-block text-white font-black text-lg mx-8">服装自由</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
-      <span class="inline-block text-white font-black text-lg mx-8">未経験OK</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
-      <span class="inline-block text-white font-black text-lg mx-8">月給25万円〜</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
-      <span class="inline-block text-white font-black text-lg mx-8">秋葉原駅徒歩5分</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
-      <span class="inline-block text-white font-black text-lg mx-8">服装自由</span>
-      <span class="inline-block text-white/60 text-lg mx-8">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">未経験OK</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">月給25万円〜</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">秋葉原駅徒歩5分</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">服装自由</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">未経験OK</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">月給25万円〜</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">秋葉原駅徒歩5分</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
+      <span class="inline-block text-white font-bold text-base mx-6">服装自由</span>
+      <span class="inline-block text-white/50 text-base mx-4">●</span>
     </div>
   </div>
-
 
   <!-- ========================================
        Section: Fit / Not Fit
        ======================================== -->
-  <section class="py-24 bg-white">
+  <section class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">Who We're Looking For</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-12 fade-up">
+        <p class="section-title-en mb-4">Who We're Looking For</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">合う人、合わない人</span>
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-6">
         <!-- Fit -->
         <div class="card p-8 border-4 border-vivid-pink fade-up">
           <div class="flex items-center gap-4 mb-6">
-            <span class="w-16 h-16 bg-gradient-to-br from-vivid-pink to-vivid-purple rounded-2xl flex items-center justify-center text-white text-3xl font-black">◎</span>
+            <span class="w-14 h-14 bg-gradient-to-br from-vivid-pink to-vivid-purple rounded-2xl flex items-center justify-center text-white">
+              <i data-lucide="check-circle" class="lucide-icon-lg"></i>
+            </span>
             <h3 class="text-2xl font-black">向いてる人</h3>
           </div>
           <ul class="space-y-4">
             <li class="flex gap-3 text-lg">
-              <span class="text-vivid-pink font-black text-xl">✓</span>
-              <span>ASMRや同人文化が<strong>好き</strong></span>
+              <i data-lucide="check" class="lucide-icon text-vivid-pink shrink-0 mt-1"></i>
+              <span class="font-medium">ASMRや同人文化が<strong>好き</strong></span>
             </li>
             <li class="flex gap-3 text-lg">
-              <span class="text-vivid-pink font-black text-xl">✓</span>
-              <span>音や演出に<strong>こだわれる</strong></span>
+              <i data-lucide="check" class="lucide-icon text-vivid-pink shrink-0 mt-1"></i>
+              <span class="font-medium">音や演出に<strong>こだわれる</strong></span>
             </li>
             <li class="flex gap-3 text-lg">
-              <span class="text-vivid-pink font-black text-xl">✓</span>
-              <span>チーム制作に<strong>やりがい</strong>を感じる</span>
+              <i data-lucide="check" class="lucide-icon text-vivid-pink shrink-0 mt-1"></i>
+              <span class="font-medium">チーム制作に<strong>やりがい</strong>を感じる</span>
             </li>
             <li class="flex gap-3 text-lg">
-              <span class="text-vivid-pink font-black text-xl">✓</span>
-              <span>データで改善するのが<strong>好き</strong></span>
+              <i data-lucide="check" class="lucide-icon text-vivid-pink shrink-0 mt-1"></i>
+              <span class="font-medium">データで改善するのが<strong>好き</strong></span>
             </li>
           </ul>
         </div>
@@ -293,25 +327,27 @@
         <!-- Not Fit -->
         <div class="card p-8 border-4 border-gray-200 fade-up">
           <div class="flex items-center gap-4 mb-6">
-            <span class="w-16 h-16 bg-gray-200 rounded-2xl flex items-center justify-center text-gray-400 text-3xl font-black">×</span>
+            <span class="w-14 h-14 bg-gray-200 rounded-2xl flex items-center justify-center text-gray-400">
+              <i data-lucide="x-circle" class="lucide-icon-lg"></i>
+            </span>
             <h3 class="text-2xl font-black text-gray-400">向いてない人</h3>
           </div>
           <ul class="space-y-4 text-gray-500">
             <li class="flex gap-3 text-lg">
-              <span class="font-black text-xl">×</span>
-              <span>成人向けコンテンツに抵抗がある</span>
+              <i data-lucide="x" class="lucide-icon shrink-0 mt-1"></i>
+              <span class="font-medium">成人向けコンテンツに抵抗がある</span>
             </li>
             <li class="flex gap-3 text-lg">
-              <span class="font-black text-xl">×</span>
-              <span>フルリモートで働きたい</span>
+              <i data-lucide="x" class="lucide-icon shrink-0 mt-1"></i>
+              <span class="font-medium">フルリモートで働きたい</span>
             </li>
             <li class="flex gap-3 text-lg">
-              <span class="font-black text-xl">×</span>
-              <span>指示待ちで動くのが好き</span>
+              <i data-lucide="x" class="lucide-icon shrink-0 mt-1"></i>
+              <span class="font-medium">指示待ちで動くのが好き</span>
             </li>
             <li class="flex gap-3 text-lg">
-              <span class="font-black text-xl">×</span>
-              <span>ルーティンワークだけしたい</span>
+              <i data-lucide="x" class="lucide-icon shrink-0 mt-1"></i>
+              <span class="font-medium">ルーティンワークだけしたい</span>
             </li>
           </ul>
         </div>
@@ -322,58 +358,40 @@
   <!-- ========================================
        Section: Business
        ======================================== -->
-  <section class="py-24 bg-gradient-to-br from-pink-50 to-purple-50">
+  <section class="py-20 bg-gray-50">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">About Us</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-12 fade-up">
+        <p class="section-title-en mb-4">About Us</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">事業紹介</span>
         </h2>
-        <p class="text-xl text-gray-600 mt-4">「売れるエロ」をデータで作る</p>
       </div>
 
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 fade-up">
-        <div class="bg-white rounded-3xl p-6 text-center shadow-xl">
-          <p class="text-5xl md:text-6xl font-black gradient-text">77</p>
-          <p class="text-gray-600 font-bold mt-2">累計作品</p>
-        </div>
-        <div class="bg-white rounded-3xl p-6 text-center shadow-xl">
-          <p class="text-4xl md:text-5xl font-black gradient-text">6,000<span class="text-xl">万</span></p>
-          <p class="text-gray-600 font-bold mt-2">累計売上</p>
-        </div>
-        <div class="bg-white rounded-3xl p-6 text-center shadow-xl">
-          <p class="text-5xl md:text-6xl font-black gradient-text">728<span class="text-xl">万</span></p>
-          <p class="text-gray-600 font-bold mt-2">最高月商</p>
-        </div>
-        <div class="bg-white rounded-3xl p-6 text-center shadow-xl">
-          <p class="text-5xl md:text-6xl font-black gradient-text">25<span class="text-xl">ヶ月</span></p>
-          <p class="text-gray-600 font-bold mt-2">活動期間</p>
-        </div>
-      </div>
-
-      <!-- Description -->
+      <!-- Description Card -->
       <div class="bg-white rounded-3xl p-8 md:p-12 shadow-xl fade-up">
         <div class="flex flex-col md:flex-row gap-8 items-center">
           <div class="flex-1">
+            <p class="text-vivid-pink font-bold text-sm mb-2">「売れるエロ」をデータで作る</p>
             <h3 class="text-2xl font-black mb-4">DLsite・FanzaでASMR音声を販売</h3>
-            <p class="text-gray-600 text-lg leading-relaxed mb-4">
+            <p class="text-gray-600 text-lg leading-relaxed mb-4 font-medium">
               声優、イラストレーター、音声編集者とチームを組み、リスナーの「癒し」や「興奮」を届けるコンテンツを制作しています。
             </p>
-            <p class="text-gray-600 text-lg leading-relaxed">
-              市場分析とデータに基づいた企画で、継続的にヒット作を生み出しています。
+            <p class="text-gray-600 text-lg leading-relaxed font-medium">
+              累計<strong class="text-vivid-pink">77作品</strong>をリリース、累計売上<strong class="text-vivid-pink">6,000万円</strong>超。市場分析とデータに基づいた企画で、継続的にヒット作を生み出しています。
             </p>
           </div>
-          <!-- Work Samples -->
-          <div class="w-full md:w-80 grid grid-cols-3 gap-2">
-            <div class="aspect-square rounded-xl overflow-hidden shadow-lg">
-              <img src="assets/images/KS001-thumbnail.png" alt="作品サンプル" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square rounded-xl overflow-hidden shadow-lg">
-              <img src="assets/images/KS008-サムネイル.png" alt="作品サンプル" class="w-full h-full object-cover">
-            </div>
-            <div class="aspect-square rounded-xl overflow-hidden shadow-lg">
-              <img src="assets/images/KS009_サムネイル.png" alt="作品サンプル" class="w-full h-full object-cover">
+          <!-- Work Samples - Horizontal Scroll -->
+          <div class="w-full md:w-auto">
+            <div class="flex md:flex-col gap-3 overflow-x-auto md:overflow-visible pb-2 md:pb-0">
+              <div class="w-28 h-28 shrink-0 rounded-xl overflow-hidden shadow-lg">
+                <img src="assets/images/KS001-thumbnail.png" alt="作品サンプル" class="w-full h-full object-cover">
+              </div>
+              <div class="w-28 h-28 shrink-0 rounded-xl overflow-hidden shadow-lg">
+                <img src="assets/images/KS008-サムネイル.png" alt="作品サンプル" class="w-full h-full object-cover">
+              </div>
+              <div class="w-28 h-28 shrink-0 rounded-xl overflow-hidden shadow-lg">
+                <img src="assets/images/KS009_サムネイル.png" alt="作品サンプル" class="w-full h-full object-cover">
+              </div>
             </div>
           </div>
         </div>
@@ -384,11 +402,11 @@
   <!-- ========================================
        CTA Banner 1
        ======================================== -->
-  <section class="py-12 bg-gradient-to-r from-vivid-pink via-vivid-magenta to-vivid-purple">
+  <section class="py-10 bg-gradient-to-r from-vivid-pink via-vivid-magenta to-vivid-purple">
     <div class="max-w-4xl mx-auto px-6 text-center text-white">
-      <p class="text-2xl md:text-3xl font-black mb-4">ここまで読んで興味が出た？</p>
-      <p class="text-pink-100 mb-6">質問だけでもOK。まずは気軽に話しましょう。</p>
-      <a href="#apply" class="inline-block bg-white text-vivid-pink font-black text-lg px-10 py-4 rounded-full hover:shadow-2xl transition-all">
+      <p class="text-xl md:text-2xl font-black mb-3">ここまで読んで興味が出た？</p>
+      <p class="text-pink-100 text-sm mb-4 font-medium">質問だけでもOK。まずは気軽に話しましょう。</p>
+      <a href="#apply" class="inline-block bg-white text-vivid-pink font-bold text-base px-8 py-3 rounded-full hover:shadow-2xl transition-all">
         カジュアル面談を予約
       </a>
     </div>
@@ -397,49 +415,49 @@
   <!-- ========================================
        Section: Vision
        ======================================== -->
-  <section class="py-24 bg-white">
+  <section class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">Our Vision</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-12 fade-up">
+        <p class="section-title-en mb-4">Our Vision</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">ビジョン</span>
         </h2>
       </div>
 
-      <div class="bg-gradient-to-br from-vivid-pink to-vivid-purple rounded-[2rem] p-8 md:p-12 text-white mb-12 fade-up">
-        <p class="text-6xl md:text-8xl font-black mb-4">48</p>
+      <div class="bg-gradient-to-br from-vivid-pink to-vivid-purple rounded-[2rem] p-8 md:p-12 text-white mb-10 fade-up">
+        <p class="text-7xl md:text-9xl font-black mb-4">48</p>
         <h3 class="text-2xl md:text-3xl font-black mb-4">
           2029年、48サークル体制へ
         </h3>
-        <p class="text-pink-100 text-lg leading-relaxed">
+        <p class="text-pink-100 text-base md:text-lg leading-relaxed font-medium">
           現在2サークルから、4年後には48サークル体制を目指しています。<br>
-          これは「48人のディレクター」を輩出するということ。<br><br>
-          未経験で入社しても、実力次第で自分のサークルを持ち、<br>
+          これは「48人のディレクター」を輩出するということ。<br class="hidden md:block"><br class="hidden md:block">
+          未経験で入社しても、実力次第で自分のサークルを持ち、<br class="hidden md:block">
           企画から販売まで一貫して手がけるディレクターへ成長できます。
         </p>
       </div>
 
       <!-- Timeline -->
       <div class="grid grid-cols-4 gap-2 md:gap-4 fade-up">
-        <div class="text-center p-4 md:p-6 bg-pink-50 rounded-2xl">
+        <div class="text-center p-3 md:p-6 bg-pink-50 rounded-2xl">
           <p class="text-xs text-vivid-pink font-bold mb-1">2025</p>
-          <p class="text-3xl md:text-4xl font-black text-gray-800">2</p>
-          <p class="text-xs text-gray-500">サークル</p>
+          <p class="text-2xl md:text-4xl font-black text-gray-800">2</p>
+          <p class="text-xs text-gray-500 font-medium">サークル</p>
         </div>
-        <div class="text-center p-4 md:p-6 bg-pink-50 rounded-2xl">
+        <div class="text-center p-3 md:p-6 bg-pink-50 rounded-2xl">
           <p class="text-xs text-vivid-pink font-bold mb-1">2026</p>
-          <p class="text-3xl md:text-4xl font-black text-gray-800">6</p>
-          <p class="text-xs text-gray-500">サークル</p>
+          <p class="text-2xl md:text-4xl font-black text-gray-800">6</p>
+          <p class="text-xs text-gray-500 font-medium">サークル</p>
         </div>
-        <div class="text-center p-4 md:p-6 bg-pink-50 rounded-2xl">
+        <div class="text-center p-3 md:p-6 bg-pink-50 rounded-2xl">
           <p class="text-xs text-vivid-pink font-bold mb-1">2027</p>
-          <p class="text-3xl md:text-4xl font-black text-gray-800">18</p>
-          <p class="text-xs text-gray-500">サークル</p>
+          <p class="text-2xl md:text-4xl font-black text-gray-800">18</p>
+          <p class="text-xs text-gray-500 font-medium">サークル</p>
         </div>
-        <div class="text-center p-4 md:p-6 bg-gradient-to-br from-vivid-pink to-vivid-purple rounded-2xl">
+        <div class="text-center p-3 md:p-6 bg-gradient-to-br from-vivid-pink to-vivid-purple rounded-2xl">
           <p class="text-xs text-pink-100 font-bold mb-1">2029</p>
-          <p class="text-3xl md:text-4xl font-black text-white">48</p>
-          <p class="text-xs text-pink-100">サークル</p>
+          <p class="text-2xl md:text-4xl font-black text-white">48</p>
+          <p class="text-xs text-pink-100 font-medium">サークル</p>
         </div>
       </div>
     </div>
@@ -448,17 +466,17 @@
   <!-- ========================================
        Section: Positions
        ======================================== -->
-  <section id="positions" class="py-24 bg-gradient-to-br from-purple-50 to-pink-50">
+  <section id="positions" class="py-28 bg-gradient-to-br from-purple-50 to-pink-50">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">Open Positions</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-12 fade-up">
+        <p class="section-title-en mb-4">Open Positions</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">募集職種</span>
         </h2>
-        <p class="text-xl text-gray-600 mt-4">計3名を募集中</p>
+        <p class="text-lg text-gray-600 mt-4 font-medium">計3名を募集中</p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
+      <div class="grid md:grid-cols-2 gap-6 mb-10">
         <!-- Position 1 -->
         <div class="card p-8 shadow-xl border-2 border-transparent hover:border-vivid-pink fade-up">
           <div class="flex justify-between items-start mb-6">
@@ -466,24 +484,27 @@
               <span class="inline-block bg-vivid-pink text-white text-sm font-bold px-4 py-1 rounded-full mb-3">2名募集</span>
               <h3 class="text-2xl font-black">音声編集スタッフ</h3>
             </div>
-            <span class="text-5xl">🎧</span>
+            <span class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-vivid-pink">
+              <i data-lucide="headphones" class="lucide-icon-lg"></i>
+            </span>
           </div>
           <div class="space-y-4 text-gray-600">
             <div>
               <p class="text-sm font-bold text-vivid-pink">業務内容</p>
-              <p>ASMR音声の編集、SE挿入、マスタリング</p>
+              <p class="font-medium">ASMR音声の編集、SE挿入、マスタリング</p>
             </div>
             <div>
               <p class="text-sm font-bold text-vivid-pink">必須条件</p>
-              <p>DAWを触ったことがある（趣味レベルOK）</p>
+              <p class="font-medium">DAWを触ったことがある（趣味レベルOK）</p>
             </div>
             <div>
               <p class="text-sm font-bold text-vivid-pink">歓迎条件</p>
-              <p>バンド経験、宅録経験、同人音声リスナー</p>
+              <p class="font-medium">バンド経験、宅録経験、同人音声リスナー</p>
             </div>
           </div>
-          <div class="mt-6 pt-6 border-t">
-            <p class="text-vivid-pink font-bold">✨ 教育担当がいるため未経験OK</p>
+          <div class="mt-6 pt-6 border-t flex items-center gap-2">
+            <i data-lucide="sparkles" class="lucide-icon text-vivid-pink"></i>
+            <p class="text-vivid-pink font-bold">教育担当がいるため未経験OK</p>
           </div>
         </div>
 
@@ -494,24 +515,27 @@
               <span class="inline-block bg-vivid-purple text-white text-sm font-bold px-4 py-1 rounded-full mb-3">1名募集</span>
               <h3 class="text-2xl font-black">SNS運用スタッフ</h3>
             </div>
-            <span class="text-5xl">📱</span>
+            <span class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-vivid-purple">
+              <i data-lucide="smartphone" class="lucide-icon-lg"></i>
+            </span>
           </div>
           <div class="space-y-4 text-gray-600">
             <div>
               <p class="text-sm font-bold text-vivid-purple">業務内容</p>
-              <p>X運用、DLsite告知、ファンコミュニケーション</p>
+              <p class="font-medium">X運用、DLsite告知、ファンコミュニケーション</p>
             </div>
             <div>
               <p class="text-sm font-bold text-vivid-purple">必須条件</p>
-              <p>ASMR・同人文化に興味がある</p>
+              <p class="font-medium">ASMR・同人文化に興味がある</p>
             </div>
             <div>
               <p class="text-sm font-bold text-vivid-purple">歓迎条件</p>
-              <p>X運用経験、推し活経験</p>
+              <p class="font-medium">X運用経験、推し活経験</p>
             </div>
           </div>
-          <div class="mt-6 pt-6 border-t">
-            <p class="text-vivid-purple font-bold">✨ 素人OK、文化理解を重視</p>
+          <div class="mt-6 pt-6 border-t flex items-center gap-2">
+            <i data-lucide="sparkles" class="lucide-icon text-vivid-purple"></i>
+            <p class="text-vivid-purple font-bold">素人OK、文化理解を重視</p>
           </div>
         </div>
       </div>
@@ -521,19 +545,27 @@
         <h3 class="text-xl font-black mb-6 text-center">共通条件</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           <div class="p-4 bg-pink-50 rounded-2xl">
-            <p class="text-2xl mb-1">💼</p>
+            <div class="w-10 h-10 mx-auto mb-2 bg-vivid-pink/10 rounded-full flex items-center justify-center text-vivid-pink">
+              <i data-lucide="briefcase" class="lucide-icon"></i>
+            </div>
             <p class="font-bold">正社員</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl">
-            <p class="text-2xl mb-1">📍</p>
+            <div class="w-10 h-10 mx-auto mb-2 bg-vivid-pink/10 rounded-full flex items-center justify-center text-vivid-pink">
+              <i data-lucide="map-pin" class="lucide-icon"></i>
+            </div>
             <p class="font-bold">秋葉原（出社）</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl">
-            <p class="text-2xl mb-1">💰</p>
+            <div class="w-10 h-10 mx-auto mb-2 bg-vivid-pink/10 rounded-full flex items-center justify-center text-vivid-pink">
+              <i data-lucide="banknote" class="lucide-icon"></i>
+            </div>
             <p class="font-bold">月給25万円〜</p>
           </div>
           <div class="p-4 bg-pink-50 rounded-2xl">
-            <p class="text-2xl mb-1">🔞</p>
+            <div class="w-10 h-10 mx-auto mb-2 bg-vivid-pink/10 rounded-full flex items-center justify-center text-vivid-pink">
+              <i data-lucide="user-check" class="lucide-icon"></i>
+            </div>
             <p class="font-bold">18歳以上</p>
           </div>
         </div>
@@ -544,20 +576,22 @@
   <!-- ========================================
        Section: Daily Work
        ======================================== -->
-  <section class="py-24 bg-white">
+  <section class="py-20 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">A Day in the Life</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-12 fade-up">
+        <p class="section-title-en mb-4">A Day in the Life</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">仕事のリアル</span>
         </h2>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-12">
+      <div class="grid md:grid-cols-2 gap-10">
         <!-- Sound Editor -->
         <div class="fade-up">
           <h3 class="text-xl font-black mb-6 flex items-center gap-3">
-            <span class="w-10 h-10 bg-gradient-to-br from-vivid-pink to-vivid-purple text-white rounded-full flex items-center justify-center">🎧</span>
+            <span class="w-10 h-10 bg-gradient-to-br from-vivid-pink to-vivid-purple text-white rounded-full flex items-center justify-center">
+              <i data-lucide="headphones" class="w-5 h-5"></i>
+            </span>
             音声編集スタッフの1日
           </h3>
           <div class="space-y-3">
@@ -571,7 +605,7 @@
               <span class="text-vivid-pink font-bold w-14 shrink-0">10:30</span>
               <div class="flex-1 bg-pink-50 rounded-xl p-4">
                 <p class="font-bold">音声編集作業</p>
-                <p class="text-sm text-gray-500">DAWで編集、ノイズ除去、SE挿入</p>
+                <p class="text-sm text-gray-500 font-medium">DAWで編集、ノイズ除去、SE挿入</p>
               </div>
             </div>
             <div class="flex gap-4">
@@ -598,7 +632,9 @@
         <!-- SNS Staff -->
         <div class="fade-up">
           <h3 class="text-xl font-black mb-6 flex items-center gap-3">
-            <span class="w-10 h-10 bg-gradient-to-br from-vivid-purple to-vivid-pink text-white rounded-full flex items-center justify-center">📱</span>
+            <span class="w-10 h-10 bg-gradient-to-br from-vivid-purple to-vivid-pink text-white rounded-full flex items-center justify-center">
+              <i data-lucide="smartphone" class="w-5 h-5"></i>
+            </span>
             SNS運用スタッフの1日
           </h3>
           <div class="space-y-3">
@@ -612,7 +648,7 @@
               <span class="text-vivid-purple font-bold w-14 shrink-0">11:00</span>
               <div class="flex-1 bg-purple-50 rounded-xl p-4">
                 <p class="font-bold">投稿作成・予約</p>
-                <p class="text-sm text-gray-500">新作告知、キャンペーン投稿</p>
+                <p class="text-sm text-gray-500 font-medium">新作告知、キャンペーン投稿</p>
               </div>
             </div>
             <div class="flex gap-4">
@@ -642,14 +678,14 @@
   <!-- ========================================
        Section: Training
        ======================================== -->
-  <section class="py-24 bg-gradient-to-br from-pink-50 to-purple-50">
+  <section class="py-20 bg-gray-50">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">Training Program</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-12 fade-up">
+        <p class="section-title-en mb-4">Training Program</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">未経験からプロへ</span>
         </h2>
-        <p class="text-xl text-gray-600 mt-4">3ヶ月の教育プログラム</p>
+        <p class="text-lg text-gray-600 mt-4 font-medium">3ヶ月の教育プログラム</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
@@ -657,10 +693,19 @@
           <span class="absolute -top-4 left-6 bg-vivid-pink text-white text-sm font-black px-5 py-2 rounded-full">Month 1</span>
           <div class="pt-4">
             <h3 class="text-xl font-black mb-4">基礎研修</h3>
-            <ul class="space-y-3 text-gray-600">
-              <li>● ASMR市場・文化の理解</li>
-              <li>● 使用ツールの操作研修</li>
-              <li>● 先輩の作業を見学</li>
+            <ul class="space-y-3 text-gray-600 font-medium">
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-pink fill-current"></i>
+                ASMR市場・文化の理解
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-pink fill-current"></i>
+                使用ツールの操作研修
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-pink fill-current"></i>
+                先輩の作業を見学
+              </li>
             </ul>
           </div>
         </div>
@@ -669,10 +714,19 @@
           <span class="absolute -top-4 left-6 bg-vivid-magenta text-white text-sm font-black px-5 py-2 rounded-full">Month 2</span>
           <div class="pt-4">
             <h3 class="text-xl font-black mb-4">実践研修</h3>
-            <ul class="space-y-3 text-gray-600">
-              <li>● 先輩サポートのもと実作業</li>
-              <li>● フィードバックで改善</li>
-              <li>● 品質基準の習得</li>
+            <ul class="space-y-3 text-gray-600 font-medium">
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-magenta fill-current"></i>
+                先輩サポートのもと実作業
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-magenta fill-current"></i>
+                フィードバックで改善
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-magenta fill-current"></i>
+                品質基準の習得
+              </li>
             </ul>
           </div>
         </div>
@@ -681,10 +735,19 @@
           <span class="absolute -top-4 left-6 bg-vivid-purple text-white text-sm font-black px-5 py-2 rounded-full">Month 3</span>
           <div class="pt-4">
             <h3 class="text-xl font-black mb-4">独り立ち</h3>
-            <ul class="space-y-3 text-gray-600">
-              <li>● 担当作品を持つ</li>
-              <li>● 一人で作業を完遂</li>
-              <li>● 困ったときは相談OK</li>
+            <ul class="space-y-3 text-gray-600 font-medium">
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-purple fill-current"></i>
+                担当作品を持つ
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-purple fill-current"></i>
+                一人で作業を完遂
+              </li>
+              <li class="flex items-start gap-2">
+                <i data-lucide="circle" class="w-2 h-2 mt-2 text-vivid-purple fill-current"></i>
+                困ったときは相談OK
+              </li>
             </ul>
           </div>
         </div>
@@ -695,38 +758,36 @@
   <!-- ========================================
        Section: Environment
        ======================================== -->
-  <section class="py-24 bg-white">
+  <section class="py-16 bg-white">
     <div class="max-w-5xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">Work Environment</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-10 fade-up">
+        <p class="section-title-en mb-4">Work Environment</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">働く環境</span>
         </h2>
       </div>
 
-      <!-- Office placeholder -->
-      <div class="bg-gradient-to-br from-pink-100 to-purple-100 rounded-3xl h-64 md:h-80 mb-12 flex items-center justify-center fade-up">
-        <div class="text-center text-gray-400">
-          <p class="text-6xl mb-4">🏢</p>
-          <p>オフィス写真</p>
-        </div>
-      </div>
-
       <div class="grid md:grid-cols-3 gap-6 fade-up">
         <div class="text-center p-8 bg-pink-50 rounded-3xl">
-          <p class="text-5xl mb-4">🚉</p>
+          <div class="w-14 h-14 mx-auto mb-4 bg-vivid-pink/10 rounded-2xl flex items-center justify-center text-vivid-pink">
+            <i data-lucide="train" class="lucide-icon-lg"></i>
+          </div>
           <h3 class="text-xl font-black mb-2">秋葉原駅徒歩5分</h3>
-          <p class="text-gray-600">通勤便利、ランチも充実</p>
+          <p class="text-gray-600 font-medium">通勤便利、ランチも充実</p>
         </div>
         <div class="text-center p-8 bg-fuchsia-50 rounded-3xl">
-          <p class="text-5xl mb-4">🎮</p>
+          <div class="w-14 h-14 mx-auto mb-4 bg-vivid-magenta/10 rounded-2xl flex items-center justify-center text-vivid-magenta">
+            <i data-lucide="users" class="lucide-icon-lg"></i>
+          </div>
           <h3 class="text-xl font-black mb-2">周りもみんなオタク</h3>
-          <p class="text-gray-600">趣味の話が通じる仲間</p>
+          <p class="text-gray-600 font-medium">趣味の話が通じる仲間</p>
         </div>
         <div class="text-center p-8 bg-purple-50 rounded-3xl">
-          <p class="text-5xl mb-4">👕</p>
+          <div class="w-14 h-14 mx-auto mb-4 bg-vivid-purple/10 rounded-2xl flex items-center justify-center text-vivid-purple">
+            <i data-lucide="shirt" class="lucide-icon-lg"></i>
+          </div>
           <h3 class="text-xl font-black mb-2">服装・髪型自由</h3>
-          <p class="text-gray-600">自分らしく働ける</p>
+          <p class="text-gray-600 font-medium">自分らしく働ける</p>
         </div>
       </div>
     </div>
@@ -735,11 +796,11 @@
   <!-- ========================================
        CTA Banner 2
        ======================================== -->
-  <section class="py-16 bg-gradient-to-r from-vivid-purple via-vivid-magenta to-vivid-pink">
+  <section class="py-12 bg-gradient-to-r from-vivid-purple via-vivid-magenta to-vivid-pink">
     <div class="max-w-4xl mx-auto px-6 text-center text-white">
-      <p class="text-3xl md:text-4xl font-black mb-4">一緒に働きませんか？</p>
-      <p class="text-xl text-pink-100 mb-8">あなたの「好き」を仕事にできる環境がここにあります</p>
-      <a href="#apply" class="inline-block bg-white text-vivid-pink font-black text-xl px-12 py-5 rounded-full hover:shadow-2xl transition-all">
+      <p class="text-2xl md:text-3xl font-black mb-3">一緒に働きませんか？</p>
+      <p class="text-lg text-pink-100 mb-6 font-medium">あなたの「好き」を仕事にできる環境がここにあります</p>
+      <a href="#apply" class="inline-block bg-white text-vivid-pink font-black text-lg px-10 py-4 rounded-full hover:shadow-2xl transition-all">
         応募する
       </a>
     </div>
@@ -748,11 +809,11 @@
   <!-- ========================================
        Section: FAQ
        ======================================== -->
-  <section class="py-24 bg-gradient-to-br from-pink-50 to-purple-50">
+  <section class="py-16 bg-gray-50">
     <div class="max-w-3xl mx-auto px-6">
-      <div class="text-center mb-16 fade-up">
-        <p class="section-title-en mb-2">FAQ</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-10 fade-up">
+        <p class="section-title-en mb-4">FAQ</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">よくある質問</span>
         </h2>
       </div>
@@ -766,7 +827,7 @@
             </svg>
           </div>
           <div class="faq-answer px-6">
-            <p class="pb-6 text-gray-600">はい、大丈夫です。3ヶ月の教育プログラムがあり、先輩が丁寧に教えます。大切なのはスキルより「ASMRや同人文化への興味」と「学ぶ意欲」です。</p>
+            <p class="pb-6 text-gray-600 font-medium">はい、大丈夫です。3ヶ月の教育プログラムがあり、先輩が丁寧に教えます。大切なのはスキルより「ASMRや同人文化への興味」と「学ぶ意欲」です。</p>
           </div>
         </div>
 
@@ -778,7 +839,7 @@
             </svg>
           </div>
           <div class="faq-answer px-6">
-            <p class="pb-6 text-gray-600">長期的にスキルを磨き、ゆくゆくはサークルを任せられる人材を育てたいからです。チームの一員として成長していただきたいと考えています。</p>
+            <p class="pb-6 text-gray-600 font-medium">長期的にスキルを磨き、ゆくゆくはサークルを任せられる人材を育てたいからです。チームの一員として成長していただきたいと考えています。</p>
           </div>
         </div>
 
@@ -790,7 +851,7 @@
             </svg>
           </div>
           <div class="faq-answer px-6">
-            <p class="pb-6 text-gray-600">申し訳ありませんが、基本的にオフィス出社をお願いしています。チームでのコミュニケーションやリアルタイムでのフィードバックを重視しているためです。</p>
+            <p class="pb-6 text-gray-600 font-medium">申し訳ありませんが、基本的にオフィス出社をお願いしています。チームでのコミュニケーションやリアルタイムでのフィードバックを重視しているためです。</p>
           </div>
         </div>
 
@@ -802,7 +863,7 @@
             </svg>
           </div>
           <div class="faq-answer px-6">
-            <p class="pb-6 text-gray-600">応募 → カジュアル面談（オンライン可）→ 面接（1〜2回）→ 内定 の流れです。まずはカジュアルにお話しましょう。</p>
+            <p class="pb-6 text-gray-600 font-medium">応募 → カジュアル面談（オンライン可）→ 面接（1〜2回）→ 内定 の流れです。まずはカジュアルにお話しましょう。</p>
           </div>
         </div>
 
@@ -814,7 +875,7 @@
             </svg>
           </div>
           <div class="faq-answer px-6">
-            <p class="pb-6 text-gray-600">カジュアル面談で実際の作品や業務内容をお見せできます。入社前に「本当に自分に合うか」を確認していただければと思います。</p>
+            <p class="pb-6 text-gray-600 font-medium">カジュアル面談で実際の作品や業務内容をお見せできます。入社前に「本当に自分に合うか」を確認していただければと思います。</p>
           </div>
         </div>
       </div>
@@ -824,14 +885,14 @@
   <!-- ========================================
        Section: Application Form
        ======================================== -->
-  <section id="apply" class="py-24 bg-white">
+  <section id="apply" class="py-20 bg-white">
     <div class="max-w-2xl mx-auto px-6">
-      <div class="text-center mb-12 fade-up">
-        <p class="section-title-en mb-2">Apply Now</p>
-        <h2 class="text-4xl md:text-5xl font-black">
+      <div class="text-center mb-10 fade-up">
+        <p class="section-title-en mb-4">Apply Now</p>
+        <h2 class="text-3xl md:text-5xl font-black">
           <span class="gradient-text">応募・お問い合わせ</span>
         </h2>
-        <p class="text-xl text-gray-600 mt-4">まずはカジュアルにお話しましょう</p>
+        <p class="text-lg text-gray-600 mt-4 font-medium">まずはカジュアルにお話しましょう</p>
       </div>
 
       <form class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-3xl p-8 md:p-12 shadow-xl space-y-6 fade-up" action="#" method="POST">
@@ -872,7 +933,7 @@
           応募する / 質問する
         </button>
 
-        <p class="text-sm text-gray-500 text-center">
+        <p class="text-sm text-gray-500 text-center font-medium">
           ※ 応募でなく質問だけでもOKです
         </p>
       </form>
@@ -891,6 +952,9 @@
 
   <!-- Scripts -->
   <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
     // Scroll Animation
     document.addEventListener('DOMContentLoaded', function() {
       const fadeElements = document.querySelectorAll('.fade-up');
