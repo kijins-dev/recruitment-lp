@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "Bash(git *)",
+      "Bash(npx tailwindcss *)",
+      "Bash(code *)"
+    ],
+    "deny": [
+      "Bash(rm -rf *)",
+      "Bash(del /f /s *)"
+    ]
+  }
+}
