@@ -41,6 +41,10 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
+  <!-- Preload critical images for hero section -->
+  <link rel="preload" as="image" href="assets/images/KS001_thumbnail.webp" type="image/webp">
+  <link rel="preload" as="image" href="assets/images/KS010_thumbnail.webp" type="image/webp">
+
   <style>
     html { scroll-behavior: smooth; }
     body {
@@ -287,16 +291,16 @@
       <div class="overflow-hidden">
         <div class="hero-scroll-left flex whitespace-nowrap items-center">
           <div class="flex-shrink-0 flex items-center gap-4 px-2">
-            <img src="assets/images/KS001_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS005_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS008_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS009_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
+            <img src="assets/images/KS001_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="high">
+            <img src="assets/images/KS005_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="low">
+            <img src="assets/images/KS008_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="low">
+            <img src="assets/images/KS009_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="low">
           </div>
           <div class="flex-shrink-0 flex items-center gap-4 px-2">
-            <img src="assets/images/KS001_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS005_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS008_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS009_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
+            <img src="assets/images/KS001_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
+            <img src="assets/images/KS005_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
+            <img src="assets/images/KS008_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
+            <img src="assets/images/KS009_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
           </div>
         </div>
       </div>
@@ -305,16 +309,16 @@
       <div class="overflow-hidden">
         <div class="hero-scroll-right flex whitespace-nowrap items-center">
           <div class="flex-shrink-0 flex items-center gap-4 px-2">
-            <img src="assets/images/KS010_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS018_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS029_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS036_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
+            <img src="assets/images/KS010_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="high">
+            <img src="assets/images/KS018_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="low">
+            <img src="assets/images/KS029_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="low">
+            <img src="assets/images/KS036_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" fetchpriority="low">
           </div>
           <div class="flex-shrink-0 flex items-center gap-4 px-2">
-            <img src="assets/images/KS010_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS018_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS029_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
-            <img src="assets/images/KS036_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity">
+            <img src="assets/images/KS010_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
+            <img src="assets/images/KS018_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
+            <img src="assets/images/KS029_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
+            <img src="assets/images/KS036_thumbnail.webp" alt="制作作品" class="h-[20vh] md:h-[26vh] w-auto object-cover rounded-sm opacity-80 hover:opacity-100 transition-opacity" decoding="async" loading="lazy">
           </div>
         </div>
       </div>
@@ -530,13 +534,13 @@
         <div class="md:col-span-2">
           <div class="grid grid-cols-2 gap-3">
             <div class="aspect-square rounded-sm overflow-hidden">
-              <img src="assets/images/KS001_thumbnail.webp" alt="作品サンプル" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+              <img src="assets/images/KS001_thumbnail.webp" alt="作品サンプル" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
             </div>
             <div class="aspect-square rounded-sm overflow-hidden">
-              <img src="assets/images/KS008_thumbnail.webp" alt="作品サンプル" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+              <img src="assets/images/KS008_thumbnail.webp" alt="作品サンプル" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
             </div>
             <div class="aspect-square rounded-sm overflow-hidden col-span-2">
-              <img src="assets/images/KS009_thumbnail.webp" alt="作品サンプル" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+              <img src="assets/images/KS009_thumbnail.webp" alt="作品サンプル" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
