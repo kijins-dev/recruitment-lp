@@ -1,96 +1,137 @@
 # 採用LP - ASMR音声制作スタッフ募集
 
-pixiv AD掲載用の採用ランディングページ
+Studio Altea（みちがえる）のpixiv AD向け採用ランディングページ
 
 ## 概要
 
 DLsite/FANZAでR18 ASMR音声作品を販売する事業の採用LP。
 音声編集スタッフ（2名）とSNS運用スタッフ（1名）を募集。
 
-**キャッチコピー**: 「エロで、誰かの日常を変える仕事。」
+**キャッチコピー**: 「エロで、日常を変える。」
 
-## デモ
-
-ローカルで `index.html` をブラウザで開くか、Live Serverで起動
+**URL**: https://studio-altea.jp
 
 ## 技術構成
 
-- **HTML5** - 静的HTML（単一ファイル）
-- **TailwindCSS** - CDN版（ビルド不要）
-- **Lucide Icons** - CDN版
-- **Google Fonts** - Zen Kaku Gothic New
+| 技術 | 詳細 |
+|------|------|
+| HTML5 | 静的HTML（単一ファイル） |
+| TailwindCSS | ビルド版（minified） |
+| アイコン | インラインSVG（Lucide Icons） |
+| フォント | Google Fonts（Zen Kaku Gothic New, Noto Sans JP） |
+| ホスティング | Cloudflare Pages |
+| ドメイン | studio-altea.jp |
 
 ## ファイル構成
 
 ```
 recruitment-lp/
-├── index.html          # メインLP
+├── index.html            # メインLP
+├── dist/
+│   └── output.css        # ビルド済みTailwind CSS
 ├── assets/
-│   └── images/         # 作品サムネイル等
-│       ├── work-sample.png
-│       ├── KS020-サムネ.png
-│       └── KS025CGサムネ-1.jpg
+│   ├── images/           # 作品サムネイル（webp）
+│   └── fonts/
+├── src/
+│   └── input.css         # Tailwindソース
+├── package.json          # npmスクリプト
+├── tailwind.config.js    # Tailwind設定
+├── .gitignore
+├── CLAUDE.md             # Claude Code用プロジェクトメモリ
 └── README.md
 ```
 
 ## デザイン
 
-### カラーパレット
+### カラーパレット（ダークモード）
 
 | 用途 | カラー |
 |------|--------|
-| 背景 | `#ffffff` / `gray-50` |
-| プライマリ | `#ec4899`（ビビッドピンク） |
-| マゼンタ | `#d946ef` |
-| アクセント | `#a855f7`（パープル） |
-| テキスト | `#1f2937` |
+| 背景 | `#0a0a0f` |
+| サブ背景 | `#12121a` |
+| シアン（アクセント） | `#00f0ff` |
+| ピンク（強調） | `#ff2d6a` |
+| テキスト | `#f8f8f8` |
 
 ### 特徴
 
+- **ダークモード基調** - 同人・クリエイター文化に寄せたデザイン
 - **FV**: 2段カルーセル（上下で逆方向スクロール）
-- **アイコン**: Lucide Icons（絵文字不使用）
-- **ボタン**: Primary（グラデーション）+ Secondary（アウトライン）
+- **アイコン**: インラインSVG（Lucide Icons）
+- **ボタン**: Primary（シアン）+ Secondary（アウトライン）
 - **レスポンシブ**: モバイルファースト設計
 
-## LP構成（8セクション）
+## LP構成（14セクション）
 
-1. ファーストビュー（FV）
-2. 合う人、合わない人
-3. 事業紹介
-4. ビジョン
-5. 募集職種
-6. 仕事のリアル
-7. 未経験からプロへ
-8. 働く環境 + FAQ + CTA
+1. ヒーロー（2列カルーセル + キャッチコピー）
+2. マーキーバナー（条件一覧）
+3. 合う人・合わない人
+4. 事業紹介
+5. CTA 1（中間）
+6. ビジョン（48サークル計画）
+7. 募集職種
+8. 仕事のリアル（1日のスケジュール）
+9. 教育プログラム
+10. 働く環境
+11. CTA 2
+12. FAQ
+13. 応募フォーム
+14. フッター
 
 ## ローカル開発
 
 ```bash
-# 方法1: ブラウザで直接開く
+# 依存関係インストール
+npm install
+
+# CSSビルド
+npm run build:css
+
+# ブラウザで確認
 open index.html
+```
 
-# 方法2: Live Server（VS Code拡張）
-# index.htmlを右クリック → "Open with Live Server"
+### HTMLを変更した場合
 
-# 方法3: Python
-python -m http.server 8000
+Tailwindクラスを追加・変更した場合は再ビルドが必要：
+
+```bash
+npm run build:css
 ```
 
 ## デプロイ
 
-静的HTMLのため、任意のホスティングサービスで公開可能:
+Cloudflare Pagesでホスティング。
 
-- Vercel
-- Netlify
-- GitHub Pages
-- AWS S3 + CloudFront
-- Firebase Hosting
+```bash
+# ローカルでビルド
+npm run build:css
+
+# コミット & プッシュ
+git add .
+git commit -m "更新内容"
+git push
+```
+
+Cloudflare Pages設定：
+- ビルドコマンド: （なし）
+- 出力ディレクトリ: `/`
+
+## パフォーマンス最適化
+
+実施済みの最適化：
+
+| 項目 | 内容 |
+|------|------|
+| 画像 | WebP形式、800px幅にリサイズ、75%品質圧縮 |
+| 画像読み込み | lazy loading, preload, fetchpriority |
+| CSS | TailwindCSS ビルド版（minified） |
+| アイコン | インラインSVG（外部リクエスト削減） |
+| フォント | preconnect + display=swap |
 
 ## TODO
 
 - [ ] フォーム送信先設定
-- [ ] オフィス写真差し込み
-- [ ] 公開・デプロイ
 
 ## 参考LP
 

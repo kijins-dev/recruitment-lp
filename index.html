@@ -6,40 +6,59 @@
   <title>ASMR音声制作スタッフ募集 | 秋葉原</title>
   <meta name="description" content="ASMR音声制作会社で正社員募集中。音声編集・SNS運用スタッフを募集しています。未経験OK、秋葉原勤務。">
 
-  <!-- TailwindCSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            base: {
-              900: '#0a0a0f',
-              800: '#12121a',
-              700: '#1a1a24',
-              600: '#24242f',
-            },
-            accent: {
-              cyan: '#00f0ff',
-              pink: '#ff2d6a',
-            }
-          },
-          fontFamily: {
-            display: ['Zen Kaku Gothic New', 'sans-serif'],
-            body: ['Noto Sans JP', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
+  <!-- TailwindCSS (Built) -->
+  <link rel="stylesheet" href="dist/output.css">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <!-- Lucide Icons - Inline SVG Sprites -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 6 9 17l-5-5"/>
+    </symbol>
+    <symbol id="icon-x-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-headphones" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+    </symbol>
+    <symbol id="icon-smartphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/>
+    </symbol>
+    <symbol id="icon-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/>
+    </symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>
+    </symbol>
+    <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>
+    </symbol>
+    <symbol id="icon-banknote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>
+    </symbol>
+    <symbol id="icon-user-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>
+    </symbol>
+    <symbol id="icon-train" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h0"/><path d="M16 15h0"/>
+    </symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </symbol>
+    <symbol id="icon-shirt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23Z"/>
+    </symbol>
+  </svg>
 
   <!-- Preload critical images for hero section -->
   <link rel="preload" as="image" href="assets/images/KS001_thumbnail.webp" type="image/webp">
@@ -417,32 +436,32 @@
         <div class="card-bordered p-8 fade-up">
           <div class="flex items-center gap-4 mb-8">
             <span class="w-12 h-12 bg-accent-cyan/10 border border-accent-cyan/30 flex items-center justify-center text-accent-cyan">
-              <i data-lucide="check-circle" class="lucide-icon-lg"></i>
+              <svg class="lucide-icon-lg"><use href="#icon-check-circle"/></svg>
             </span>
             <h3 class="font-display text-2xl font-black text-accent-cyan">向いてる人</h3>
           </div>
           <ul class="space-y-5">
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="check" class="w-4 h-4 text-accent-cyan"></i>
+                <svg class="w-4 h-4 text-accent-cyan"><use href="#icon-check"/></svg>
               </span>
               <span class="text-gray-300">ASMRや同人文化が<strong class="text-white">好き</strong></span>
             </li>
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="check" class="w-4 h-4 text-accent-cyan"></i>
+                <svg class="w-4 h-4 text-accent-cyan"><use href="#icon-check"/></svg>
               </span>
               <span class="text-gray-300">音や演出に<strong class="text-white">こだわれる</strong></span>
             </li>
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="check" class="w-4 h-4 text-accent-cyan"></i>
+                <svg class="w-4 h-4 text-accent-cyan"><use href="#icon-check"/></svg>
               </span>
               <span class="text-gray-300">チーム制作に<strong class="text-white">やりがい</strong>を感じる</span>
             </li>
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-accent-cyan/10 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="check" class="w-4 h-4 text-accent-cyan"></i>
+                <svg class="w-4 h-4 text-accent-cyan"><use href="#icon-check"/></svg>
               </span>
               <span class="text-gray-300">データで改善するのが<strong class="text-white">好き</strong></span>
             </li>
@@ -453,32 +472,32 @@
         <div class="card-dark p-8 fade-up" style="transition-delay: 0.1s">
           <div class="flex items-center gap-4 mb-8">
             <span class="w-12 h-12 bg-gray-800 border border-gray-700 flex items-center justify-center text-gray-500">
-              <i data-lucide="x-circle" class="lucide-icon-lg"></i>
+              <svg class="lucide-icon-lg"><use href="#icon-x-circle"/></svg>
             </span>
             <h3 class="font-display text-2xl font-black text-gray-500">向いてない人</h3>
           </div>
           <ul class="space-y-5 text-gray-500">
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="x" class="w-4 h-4"></i>
+                <svg class="w-4 h-4"><use href="#icon-x"/></svg>
               </span>
               <span>成人向けコンテンツに抵抗がある</span>
             </li>
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="x" class="w-4 h-4"></i>
+                <svg class="w-4 h-4"><use href="#icon-x"/></svg>
               </span>
               <span>フルリモートで働きたい</span>
             </li>
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="x" class="w-4 h-4"></i>
+                <svg class="w-4 h-4"><use href="#icon-x"/></svg>
               </span>
               <span>指示待ちで動くのが好き</span>
             </li>
             <li class="flex gap-4">
               <span class="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center shrink-0 mt-0.5">
-                <i data-lucide="x" class="w-4 h-4"></i>
+                <svg class="w-4 h-4"><use href="#icon-x"/></svg>
               </span>
               <span>ルーティンワークだけしたい</span>
             </li>
@@ -653,7 +672,7 @@
               <h3 class="font-display text-2xl font-black text-white">音声編集スタッフ</h3>
             </div>
             <span class="w-12 h-12 border border-base-600 group-hover:border-accent-cyan flex items-center justify-center text-gray-400 group-hover:text-accent-cyan transition-colors">
-              <i data-lucide="headphones" class="lucide-icon-lg"></i>
+              <svg class="lucide-icon-lg"><use href="#icon-headphones"/></svg>
             </span>
           </div>
           <div class="space-y-5 text-gray-400">
@@ -671,7 +690,7 @@
             </div>
           </div>
           <div class="mt-8 pt-6 border-t border-base-600 flex items-center gap-3">
-            <i data-lucide="sparkles" class="w-5 h-5 text-accent-cyan"></i>
+            <svg class="w-5 h-5 text-accent-cyan"><use href="#icon-sparkles"/></svg>
             <p class="text-accent-cyan text-sm font-medium">教育担当がいるため未経験OK</p>
           </div>
         </div>
@@ -684,7 +703,7 @@
               <h3 class="font-display text-2xl font-black text-white">SNS運用スタッフ</h3>
             </div>
             <span class="w-12 h-12 border border-base-600 group-hover:border-accent-pink flex items-center justify-center text-gray-400 group-hover:text-accent-pink transition-colors">
-              <i data-lucide="smartphone" class="lucide-icon-lg"></i>
+              <svg class="lucide-icon-lg"><use href="#icon-smartphone"/></svg>
             </span>
           </div>
           <div class="space-y-5 text-gray-400">
@@ -702,7 +721,7 @@
             </div>
           </div>
           <div class="mt-8 pt-6 border-t border-base-600 flex items-center gap-3">
-            <i data-lucide="sparkles" class="w-5 h-5 text-accent-pink"></i>
+            <svg class="w-5 h-5 text-accent-pink"><use href="#icon-sparkles"/></svg>
             <p class="text-accent-pink text-sm font-medium">素人OK、文化理解を重視</p>
           </div>
         </div>
@@ -713,19 +732,19 @@
         <h3 class="font-display text-lg font-bold mb-6 text-gray-400">共通条件</h3>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div class="flex items-center gap-3">
-            <i data-lucide="briefcase" class="w-5 h-5 text-accent-cyan"></i>
+            <svg class="w-5 h-5 text-accent-cyan"><use href="#icon-briefcase"/></svg>
             <span class="text-white">正社員</span>
           </div>
           <div class="flex items-center gap-3">
-            <i data-lucide="map-pin" class="w-5 h-5 text-accent-cyan"></i>
+            <svg class="w-5 h-5 text-accent-cyan"><use href="#icon-map-pin"/></svg>
             <span class="text-white">秋葉原（出社）</span>
           </div>
           <div class="flex items-center gap-3">
-            <i data-lucide="banknote" class="w-5 h-5 text-accent-cyan"></i>
+            <svg class="w-5 h-5 text-accent-cyan"><use href="#icon-banknote"/></svg>
             <span class="text-white">月給25万円〜</span>
           </div>
           <div class="flex items-center gap-3">
-            <i data-lucide="user-check" class="w-5 h-5 text-accent-cyan"></i>
+            <svg class="w-5 h-5 text-accent-cyan"><use href="#icon-user-check"/></svg>
             <span class="text-white">18歳以上</span>
           </div>
         </div>
@@ -750,7 +769,7 @@
         <div class="fade-up">
           <h3 class="font-display text-xl font-bold mb-8 flex items-center gap-4">
             <span class="w-10 h-10 bg-accent-cyan text-base-900 flex items-center justify-center">
-              <i data-lucide="headphones" class="w-5 h-5"></i>
+              <svg class="w-5 h-5"><use href="#icon-headphones"/></svg>
             </span>
             <span class="text-white">音声編集スタッフの1日</span>
           </h3>
@@ -793,7 +812,7 @@
         <div class="fade-up" style="transition-delay: 0.1s">
           <h3 class="font-display text-xl font-bold mb-8 flex items-center gap-4">
             <span class="w-10 h-10 bg-accent-pink text-white flex items-center justify-center">
-              <i data-lucide="smartphone" class="w-5 h-5"></i>
+              <svg class="w-5 h-5"><use href="#icon-smartphone"/></svg>
             </span>
             <span class="text-white">SNS運用スタッフの1日</span>
           </h3>
@@ -938,21 +957,21 @@
       <div class="grid md:grid-cols-3 gap-6 fade-up">
         <div class="p-8 card-dark group hover-lift">
           <div class="w-12 h-12 mb-6 border border-accent-cyan/30 group-hover:border-accent-cyan flex items-center justify-center text-accent-cyan transition-colors">
-            <i data-lucide="train" class="lucide-icon-lg"></i>
+            <svg class="lucide-icon-lg"><use href="#icon-train"/></svg>
           </div>
           <h3 class="font-display text-xl font-bold mb-2 text-white">秋葉原駅徒歩5分</h3>
           <p class="text-gray-500">通勤便利、ランチも充実</p>
         </div>
         <div class="p-8 card-dark group hover-lift">
           <div class="w-12 h-12 mb-6 border border-accent-cyan/30 group-hover:border-accent-cyan flex items-center justify-center text-accent-cyan transition-colors">
-            <i data-lucide="users" class="lucide-icon-lg"></i>
+            <svg class="lucide-icon-lg"><use href="#icon-users"/></svg>
           </div>
           <h3 class="font-display text-xl font-bold mb-2 text-white">周りもみんなオタク</h3>
           <p class="text-gray-500">趣味の話が通じる仲間</p>
         </div>
         <div class="p-8 card-dark group hover-lift">
           <div class="w-12 h-12 mb-6 border border-accent-cyan/30 group-hover:border-accent-cyan flex items-center justify-center text-accent-cyan transition-colors">
-            <i data-lucide="shirt" class="lucide-icon-lg"></i>
+            <svg class="lucide-icon-lg"><use href="#icon-shirt"/></svg>
           </div>
           <h3 class="font-display text-xl font-bold mb-2 text-white">服装・髪型自由</h3>
           <p class="text-gray-500">自分らしく働ける</p>
@@ -1125,9 +1144,6 @@
 
   <!-- Scripts -->
   <script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
     // Scroll Animation
     document.addEventListener('DOMContentLoaded', function() {
       const animatedElements = document.querySelectorAll('.fade-up, .fade-left, .scale-in');
